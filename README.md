@@ -1,6 +1,6 @@
 ﻿# <img src="chatbotFill.svg" width="30" style="margin-right: 10px" /> Chatbot
 
-Chatbot es una interfaz de chat moderna e interactiva diseñada para proporcionar una experiencia de usuario fluida y atractiva. Este proyecto está en desarrollo y pronto incorporará la potencia de Google Gemini LLM para ofrecer respuestas inteligentes y contextuales.
+Chatbot es una interfaz de chat moderna e interactiva diseñada para proporcionar una experiencia de usuario fluida y atractiva. Este proyecto está en desarrollo y pronto incorporará la potencia de Google Gemini LLM para ofrecer respuestas inteligentes y contextuales..
 
 ## 🚀 Características Planeadas
 
@@ -48,4 +48,5 @@ cd chatbot
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT - mira el archivo `LICENSE` para más detalles.
+
 
