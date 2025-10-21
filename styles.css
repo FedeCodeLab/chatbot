@@ -26,3 +26,67 @@ button {
   border-radius: 50%;
   display: inline-block;
 }
+
+.button {
+  height: 35px;
+  width: 35px;
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  color: #7784b1;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #f1f1ff;
+}
+
+.chat-form {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 32px;
+  outline: 1px solid #cccce5;
+}
+
+.chat-form:focus-within {
+  outline: 2px solid #5350c4;
+}
+
+#send-message {
+  color: #fff;
+  display: none;
+  background-color: #5350c4;
+}
+
+#send-message:hover {
+  background-color: #3d39ac;
+}
+
+#message-input:valid ~ .chat-controls #send-message {
+  display: block;
+}
+
+.user-message {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.message-text {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-radius: 10px 10px 0 10px;
+  padding: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
