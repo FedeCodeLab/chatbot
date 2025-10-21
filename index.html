@@ -16,44 +16,175 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- ? --------------- Chabot Header --------------- -->
-
-    <header>
-      <div>
-        <img src="chatbot.svg" alt="Chatbot Logo" class="logo" />
-        <h2>Chatbot</h2>
-      </div>
-      <button class="material-symbols-rounded">keyboard_arrow_down</button>
-    </header>
-
-    <!-- ? --------------- Chabot body --------------- -->
-    <main>
-      <div>
-        <img src="chatbot.svg" alt="Chatbot Logo" class="logo" />
-        <div>Hola 👋 ¿En qué puedo ayudarte hoy?</div>
-      </div>
-
-      <div>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing.</div>
-      </div>
-    </main>
-
-    <!-- ? --------------- Chabot Footer --------------- -->
-    <footer>
-      <form action="#">
-        <textarea placeholder="Message..."></textarea>
-        <div>
-          <button type="button" class="material-symbols-rounded">
-            sentiment_satisfied
-          </button>
-          <button type="button" class="material-symbols-rounded">
-            attach_file
-          </button>
-          <button type="submit" class="material-symbols-rounded">
-            arrow_upward
-          </button>
+    <div
+      style="
+        background-color: #f0f6ff;
+        width: 350px;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+      "
+    >
+      <!-- ? --------------- Chabot Header --------------- -->
+      <header
+        style="
+          background-color: #2563eb;
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 16px 16px;
+          border-radius: 20px 20px 0 0;
+        "
+      >
+        <div style="display: flex; align-items: center; gap: 6px">
+          <img
+            src="chatbotFill.svg"
+            alt="Chatbot Logo"
+            style="
+              background-color: #ffffff;
+              border-radius: 50%;
+              padding: 4px;
+              height: 30px;
+              width: 30px;
+            "
+          />
+          <h2 style="font-size: 16px">Chatbot</h2>
         </div>
-      </form>
-    </footer>
+        <button class="material-symbols-rounded" style="color: white">
+          keyboard_arrow_down
+        </button>
+      </header>
+
+      <!-- ? --------------- Chabot body --------------- -->
+      <main
+        style="
+          flex: 1;
+          padding: 16px 16px;
+          font-size: 13px;
+          font-weight: 500;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          background-color: #f0f6ff;
+        "
+      >
+        <div style="display: flex; gap: 10px">
+          <div style="height: full; display: flex; align-items: end">
+            <img
+              src="chatbot.svg"
+              alt="Chatbot Logo"
+              class="logo"
+              style="
+                display: flex;
+                align-items: end;
+                justify-content: end;
+                background-color: #2563eb;
+                border-radius: 50%;
+                padding: 4px;
+                height: 30px;
+                width: 30px;
+              "
+            />
+          </div>
+
+          <p
+            style="
+              background: #dbeafe;
+              border-radius: 10px 10px 10px 0;
+              padding: 10px;
+            "
+          >
+            Hola 👋<br />¿En qué puedo ayudarte hoy?
+          </p>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; width: 100%">
+          <p
+            style="
+              background-color: #2563eb;
+              color: #ffffff;
+              border-radius: 10px 10px 0 10px;
+              padding: 10px;
+              max-width: 80%;
+              word-wrap: break-word;
+            "
+          >
+            Lorem ipsum dolor sit amet consectetur enasdsda.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 10px">
+          <div style="height: full; display: flex; align-items: end">
+            <img
+              src="chatbot.svg"
+              alt="Chatbot Logo"
+              class="logo"
+              style="
+                display: flex;
+                align-items: end;
+                justify-content: end;
+                background-color: #2563eb;
+                border-radius: 50%;
+                padding: 4px;
+                height: 30px;
+                width: 30px;
+              "
+            />
+          </div>
+
+          <div
+            style="
+              background: #dbeafe;
+              border-radius: 10px 10px 10px 0;
+              padding: 10px;
+            "
+          >
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </main>
+
+      <!-- ? --------------- Chabot Footer --------------- -->
+      <footer
+        style="
+          width: 100%;
+          background-color: #f0f6ff;
+          border-radius: 0 0 20px 20px;
+          padding: 10px 16px;
+        "
+      >
+        <form action="#" style="position: relative">
+          <textarea
+            style="
+              width: 100%;
+              border-radius: 50px;
+              padding: 10px 15px;
+              resize: none;
+              height: 60px;
+              display: flex;
+              align-items: center;
+              box-sizing: border-box;
+              overflow-y: hidden;
+            "
+            placeholder="Message..."
+          ></textarea>
+          <div style="position: absolute; right: 0">
+            <button type="button" class="material-symbols-rounded">
+              sentiment_satisfied
+            </button>
+            <button type="button" class="material-symbols-rounded">
+              attach_file
+            </button>
+            <button type="submit" class="material-symbols-rounded">
+              arrow_upward
+            </button>
+          </div>
+        </form>
+      </footer>
+    </div>
   </body>
 </html>
