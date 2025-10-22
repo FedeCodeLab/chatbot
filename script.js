@@ -1,12 +1,21 @@
 const messageInput = document.getElementById("message-input");
 const sendMessageButton = document.getElementById("send-message");
 const chatBody = document.querySelector(".chat-body");
+const fileInput = document.getElementById("file-input");
+const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
+const fileCancelButton = document.getElementById("file-cancel");
 
 const API_URL = "/api/gemini";
 
 const userData = {
   message: null,
+  file: {
+    data: null,
+    mime_type: null,
+  },
 };
+
+const chatHistory = [];
 
 // 3. Recibimos el contenido del mensaje y las clases que tendrá el div que contendrá el mensaje. Creamos el div, le agregamos las clases y le añadimos el contenido.
 const createMessageElement = (content, ...classes) => {
@@ -18,16 +27,19 @@ const createMessageElement = (content, ...classes) => {
 
 const generateBotResponse = async (incomingMessageDiv) => {
   const messageElement = incomingMessageDiv.querySelector(".bot-bubble");
+  chatHistory.push({
+    role: "user",
+    parts: [
+      { text: userData.message },
+      ...(userData.file.data ? [{ inline_data: userData.file }] : []),
+    ],
+  });
 
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      contents: [
-        {
-          parts: [{ text: userData.message }],
-        },
-      ],
+      contents: chatHistory,
     }),
   };
   try {
@@ -39,9 +51,17 @@ const generateBotResponse = async (incomingMessageDiv) => {
       .replace(/\*\*(.*?)\*\*/g, "$1")
       .trim();
     messageElement.innerText = apiResponseText;
+
+    chatHistory.push({
+      role: "model",
+      parts: [{ text: apiResponseText }],
+    });
   } catch (error) {
     console.log(error);
+    messageElement.innerText = error.message;
+    messageElement.style.color = "#ff0000";
   } finally {
+    userData.file = {};
     incomingMessageDiv.classList.remove("thinking");
     chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
   }
@@ -54,8 +74,13 @@ const handleOutgoingMessage = (e) => {
 
   userData.message = messageInput.value.trim();
   messageInput.value = "";
+  fileUploadWrapper.classList.remove("file-uploaded");
 
-  const messageContent = `<p class="message-text"></p>`;
+  const messageContent = `<p class="message-text"></p> ${
+    userData.file.data
+      ? `<img src="data:${userData.file.mime_type};base64,${userData.file.data}" class="attatchment" />`
+      : ""
+  }`;
   const outgoingMessageDiv = createMessageElement(
     messageContent,
     "user-message"
@@ -76,7 +101,8 @@ const handleOutgoingMessage = (e) => {
             <div class="dot"></div>
             <div class="dot"></div>
           </div>
-        </div>`;
+        </div>
+        `;
     const incomingMessageDiv = createMessageElement(
       messageContent,
       "bot-message",
@@ -98,4 +124,53 @@ messageInput.addEventListener("keydown", (e) => {
   return userMessage;
 });
 
+fileInput.addEventListener("change", () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    fileUploadWrapper.querySelector("img").src = e.target.result;
+    fileUploadWrapper.classList.add("file-uploaded");
+    const base64String = e.target.result.split(",")[1];
+
+    userData.file = {
+      data: base64String,
+      mime_type: file.type,
+    };
+
+    fileInput.value = "";
+  };
+
+  reader.readAsDataURL(file);
+});
+
+fileCancelButton.addEventListener("click", () => {
+  userData.file = {};
+  fileUploadWrapper.classList.remove("file-uploaded");
+});
+
+const picker = new EmojiMart.Picker({
+  theme: "light",
+  skinTonePosition: "none",
+  previewPosition: "none",
+  onEmojiSelect: (emoji) => {
+    const { selectionStart: start, selectionEnd: end } = messageInput;
+    messageInput.setRangeText(emoji.native, start, end, "end");
+    messageInput.focus();
+  },
+  onClickOutside: (e) => {
+    if (e.target.id === "emoji-picker") {
+      document.body.classList.toggle("show-emoji-picker");
+    } else {
+      document.body.classList.remove("show-emoji-picker");
+    }
+  },
+});
+
+document.querySelector(".chat-form").appendChild(picker);
+
 sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
+document
+  .getElementById("file-upload")
+  .addEventListener("click", () => fileInput.click());
