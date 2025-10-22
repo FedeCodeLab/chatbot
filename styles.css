@@ -13,6 +13,16 @@ body {
   align-items: center;
 }
 
+.chatbot {
+  background-color: #f0f6ff;
+  width: 350px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
 .chat-body {
   flex: 1;
   padding: 16px 16px;
@@ -210,4 +220,14 @@ button {
   padding: 10px;
   max-width: 80%;
   word-wrap: break-word;
+}
+
+@media screen and (max-width: 768px) {
+  .chatbot {
+    height: 80vh;
+  }
+
+  .chat-body {
+    max-height: calc(80vh - 135px);
+  }
 }
