@@ -7,16 +7,15 @@
 body {
   font-family: "Inter", sans-serif;
   min-height: 100vh;
-  background: linear-gradient(#eeeeff, #c8c7ff);
+  background: linear-gradient(#361e5c, #925fff);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .chatbot {
-  background-color: #f0f6ff;
   width: 350px;
-  height: 500px;
+  height: 495px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -24,7 +23,7 @@ body {
 }
 
 .header {
-  background-color: #2563eb;
+  background: linear-gradient(#f24f13, #f27442);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -46,7 +45,7 @@ body {
   overflow-x: hidden;
   max-height: calc(500px - 135px);
   scrollbar-width: thin;
-  scrollbar-color: #2563eb transparent;
+  scrollbar-color: #f24f13 transparent;
 }
 
 .chat-body::-webkit-scrollbar {
@@ -58,7 +57,7 @@ body {
 }
 
 .chat-body::-webkit-scrollbar-thumb {
-  background-color: #2563eb;
+  background-color: #f24f13;
   border-radius: 3px;
 }
 
@@ -145,17 +144,17 @@ button {
 }
 
 .chat-form:focus-within {
-  outline: 2px solid #5350c4;
+  outline: 2px solid #f24f13;
 }
 
 #send-message {
   color: #fff;
   display: none;
-  background-color: #5350c4;
+  background-color: #f24f13;
 }
 
 #send-message:hover {
-  background-color: #3d39ac;
+  background-color: rgb(223, 65, 3);
 }
 
 #message-input:valid ~ .chat-controls #send-message {
@@ -177,7 +176,7 @@ button {
 }
 
 .message-text {
-  background-color: #2563eb;
+  background: linear-gradient(#f24f13, #f27442);
   color: #ffffff;
   border-radius: 10px 10px 0 10px;
   padding: 10px;
@@ -192,7 +191,7 @@ button {
   display: flex;
   align-items: end;
   justify-content: end;
-  background-color: #2563eb;
+  background-color: #f24f13;
   border-radius: 50%;
   padding: 4px;
   height: 30px;
@@ -213,10 +212,11 @@ button {
 }
 
 .bot-bubble {
-  background: #dbeafe;
+  background: #fae3d9;
   border-radius: 10px 10px 10px 0;
   padding: 10px;
   max-width: 80%;
+  color: #1d1c1c;
   word-wrap: break-word;
   overflow-wrap: break-word;
   word-break: break-word;

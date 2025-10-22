@@ -1,9 +1,9 @@
-const messageInput = document.getElementById("message-input");
-const sendMessageButton = document.getElementById("send-message");
-const chatBody = document.querySelector(".chat-body");
-const fileInput = document.getElementById("file-input");
 const fileUploadWrapper = document.querySelector(".file-upload-wrapper");
+const sendMessageButton = document.getElementById("send-message");
 const fileCancelButton = document.getElementById("file-cancel");
+const messageInput = document.getElementById("message-input");
+const fileInput = document.getElementById("file-input");
+const chatBody = document.querySelector(".chat-body");
 
 const API_URL = "/api/gemini";
 
