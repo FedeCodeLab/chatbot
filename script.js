@@ -35,12 +35,15 @@ const generateBotResponse = async (incomingMessageDiv) => {
     const data = await response.json();
     if (!response.ok) throw new Error(data.error.message);
 
-    const apiResponseText = data.candidates[0].content.parts[0].text.trim();
+    const apiResponseText = data.candidates[0].content.parts[0].text
+      .replace(/\*\*(.*?)\*\*/g, "$1")
+      .trim();
     messageElement.innerText = apiResponseText;
   } catch (error) {
     console.log(error);
   } finally {
     incomingMessageDiv.classList.remove("thinking");
+    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
   }
 };
 
@@ -60,6 +63,7 @@ const handleOutgoingMessage = (e) => {
   outgoingMessageDiv.querySelector(".message-text").textContent =
     userData.message;
   chatBody.appendChild(outgoingMessageDiv);
+  chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
 
   setTimeout(() => {
     const messageContent = `<div class="bubble-container">
@@ -79,6 +83,7 @@ const handleOutgoingMessage = (e) => {
       "thinking"
     );
     chatBody.appendChild(incomingMessageDiv);
+    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
 
     generateBotResponse(incomingMessageDiv);
   }, 600);
