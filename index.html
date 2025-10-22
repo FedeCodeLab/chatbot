@@ -59,95 +59,16 @@
       </header>
 
       <!-- ? --------------- Chabot body --------------- -->
-      <main
-        style="
-          flex: 1;
-          padding: 16px 16px;
-          font-size: 13px;
-          font-weight: 500;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          background-color: #f0f6ff;
-        "
-        class="chat-body"
-      >
-        <div style="display: flex; gap: 10px">
-          <div style="height: full; display: flex; align-items: end">
-            <img
-              src="chatbot.svg"
-              alt="Chatbot Logo"
-              class="logo"
-              style="
-                display: flex;
-                align-items: end;
-                justify-content: end;
-                background-color: #2563eb;
-                border-radius: 50%;
-                padding: 4px;
-                height: 30px;
-                width: 30px;
-              "
-            />
+      <main class="chat-body">
+        <div class="bubble-container">
+          <div class="bubble-image-container">
+            <img src="chatbot.svg" alt="Chatbot Logo" class="logo" />
           </div>
 
-          <p
-            style="
-              background: #dbeafe;
-              border-radius: 10px 10px 10px 0;
-              padding: 10px;
-            "
-          >
-            Hola 👋<br />¿En qué puedo ayudarte hoy?
-          </p>
+          <p class="bot-bubble">Hola 👋<br />¿En qué puedo ayudarte hoy?</p>
         </div>
 
-        <div style="display: flex; justify-content: flex-end; width: 100%">
-          <p
-            style="
-              background-color: #2563eb;
-              color: #ffffff;
-              border-radius: 10px 10px 0 10px;
-              padding: 10px;
-              max-width: 80%;
-              word-wrap: break-word;
-            "
-          >
-            Lorem ipsum dolor sit amet consectetur enasdsda.
-          </p>
-        </div>
-
-        <div style="display: flex; gap: 10px">
-          <div style="height: full; display: flex; align-items: end">
-            <img
-              src="chatbot.svg"
-              alt="Chatbot Logo"
-              class="logo"
-              style="
-                display: flex;
-                align-items: end;
-                justify-content: end;
-                background-color: #2563eb;
-                border-radius: 50%;
-                padding: 4px;
-                height: 30px;
-                width: 30px;
-              "
-            />
-          </div>
-
-          <div
-            style="
-              background: #dbeafe;
-              border-radius: 10px 10px 10px 0;
-              padding: 10px;
-            "
-          >
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-          </div>
-        </div>
+        <!-- Nuevos mensajes -->
       </main>
 
       <!-- ? --------------- Chabot Footer --------------- -->
