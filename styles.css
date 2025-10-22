@@ -17,6 +17,7 @@ body {
   background-color: #f0f6ff;
   width: 350px;
   height: 500px;
+  max-height: 700px;
   display: flex;
   flex-direction: column;
   border-radius: 20px;
@@ -34,14 +35,11 @@ body {
   background-color: #f0f6ff;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: calc(
-    500px - 135px
-  ); /* 500px del contenedor - (altura del header + altura del footer) */
+  max-height: calc(500px - 135px);
   scrollbar-width: thin;
   scrollbar-color: #2563eb transparent;
 }
 
-/* Estilo para la barra de desplazamiento en webkit (Chrome, Safari, etc.) */
 .chat-body::-webkit-scrollbar {
   width: 6px;
 }
@@ -193,7 +191,7 @@ button {
   display: flex;
   gap: 10px;
   width: 100%;
-  min-width: 0; /* Permite que los elementos hijos se encojan si es necesario */
+  min-width: 0;
 }
 
 .bubble-image-container {
