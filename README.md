@@ -36,9 +36,9 @@ cd chatbot
 
 ## 🔮 Próximas Implementaciones
 
-- [ ] Integración de Google Gemini LLM
-- [ ] Sistema de manejo de contexto
 - [ ] Persistencia de conversaciones
+- [ ] Envio de imagenes
+- [ ] Redactar a través de audio
 - [ ] Mejoras en la interfaz de usuario
 
 ## 👨‍💻 Autor
@@ -48,6 +48,7 @@ cd chatbot
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT - mira el archivo `LICENSE` para más detalles.
+
 
 
 
