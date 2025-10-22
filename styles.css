@@ -22,6 +22,27 @@ body {
   flex-direction: column;
   gap: 20px;
   background-color: #f0f6ff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(
+    500px - 135px
+  ); /* 500px del contenedor - (altura del header + altura del footer) */
+  scrollbar-width: thin;
+  scrollbar-color: #2563eb transparent;
+}
+
+/* Estilo para la barra de desplazamiento en webkit (Chrome, Safari, etc.) */
+.chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 3px;
 }
 
 button {
@@ -142,6 +163,9 @@ button {
   padding: 10px;
   max-width: 80%;
   word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .logo {
@@ -158,6 +182,8 @@ button {
 .bubble-container {
   display: flex;
   gap: 10px;
+  width: 100%;
+  min-width: 0; /* Permite que los elementos hijos se encojan si es necesario */
 }
 
 .bubble-image-container {
@@ -170,6 +196,11 @@ button {
   background: #dbeafe;
   border-radius: 10px 10px 10px 0;
   padding: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .user-bubble {

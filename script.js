@@ -2,6 +2,10 @@ const messageInput = document.getElementById("message-input");
 const sendMessageButton = document.getElementById("send-message");
 const chatBody = document.querySelector(".chat-body");
 
+const API_KEY = "AIzaSyC2oJ3jovIPlNuW1sU6sdwTDfLh0uUo-F4";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/\
+gemini-2.5-flash:generateContent?key=${API_KEY}`;
+
 const userData = {
   message: null,
 };
@@ -12,6 +16,34 @@ const createMessageElement = (content, ...classes) => {
   div.classList.add("message", ...classes);
   div.innerHTML = content;
   return div;
+};
+
+const generateBotResponse = async (incomingMessageDiv) => {
+  const messageElement = incomingMessageDiv.querySelector(".bot-bubble");
+
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [
+        {
+          parts: [{ text: userData.message }],
+        },
+      ],
+    }),
+  };
+  try {
+    const response = await fetch(API_URL, requestOptions);
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error.message);
+
+    const apiResponseText = data.candidates[0].content.parts[0].text.trim();
+    messageElement.innerText = apiResponseText;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    incomingMessageDiv.classList.remove("thinking");
+  }
 };
 
 // 2. Recibimos el mensaje del usuario y lo colocamos dentro de la etiqueta p. Luego disparamos la función createMessageElement guardando el resultado en una constante.
@@ -49,6 +81,8 @@ const handleOutgoingMessage = (e) => {
       "thinking"
     );
     chatBody.appendChild(incomingMessageDiv);
+
+    generateBotResponse(incomingMessageDiv);
   }, 600);
 };
 
