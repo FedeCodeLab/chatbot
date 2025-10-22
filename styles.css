@@ -137,6 +137,7 @@ button {
 
 .chat-form {
   display: flex;
+  position: relative;
   align-items: center;
   background-color: #ffffff;
   border-radius: 32px;
@@ -165,6 +166,8 @@ button {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  flex-direction: column;
+  align-items: end;
 }
 
 .bot-message {
@@ -231,7 +234,7 @@ button {
 
 @media screen and (max-width: 768px) {
   .chatbot {
-    height: 100dvh;
+    height: 90vh;
     width: 100%;
     border-radius: 0px;
     -webkit-border-radius: 0px;
@@ -249,6 +252,69 @@ button {
   }
 
   .chat-body {
-    max-height: calc(100dvh - 135px);
+    max-height: calc(90vh - 135px);
   }
+}
+
+.attatchment {
+  width: 70%;
+  margin-top: 7px;
+  border-radius: 13px 3px 13px 13px;
+}
+
+.file-upload-wrapper {
+  height: 35px;
+  width: 35px;
+  position: relative;
+}
+
+.file-upload-wrapper #file-cancel {
+  color: #2563eb;
+  background-color: #fff;
+}
+
+.file-upload-wrapper :where(img, button) {
+  position: absoute;
+}
+
+.file-upload-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.file-upload-wrapper :where(img, #file-cancel),
+.file-upload-wrapper.file-uploaded #file-upload {
+  display: none;
+}
+
+.file-upload-wrapper.file-uploaded img,
+.file-upload-wrapper.file-uploaded:hover #file-cancel {
+  display: block;
+  position: absolute;
+  top: 0;
+}
+
+em-emoji-picker {
+  position: absolute;
+  left: 50%;
+  top: -337px;
+  width: 100%;
+  max-width: 350px;
+  max-height: 330px;
+  visibility: hidden;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+body.show-emoji-picker em-emoji-picker {
+  visibility: visible;
 }
