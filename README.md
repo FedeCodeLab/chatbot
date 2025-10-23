@@ -34,20 +34,18 @@ cd chatbot
 
 3. Abre el archivo `index.html` en tu navegador web preferido.
 
-## 🔮 Próximas Implementaciones
-
-- [ ] Persistencia de conversaciones
-- [ ] Envio de imagenes
-- [ ] Redactar a través de audio
-- [ ] Mejoras en la interfaz de usuario
-
 ## 👨‍💻 Autor
 
-[Federico Guzmán](https://github.com/FedeCodeLab)
+[Github](https://github.com/FedeCodeLab)
+<br/>
+[Linkedin](https://www.linkedin.com/in/federico-guzman/)
+<br/>
+[Portfolio](https://fedecodelab.vercel.app/)
 
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT - mira el archivo `LICENSE` para más detalles.
+
 
 
 
